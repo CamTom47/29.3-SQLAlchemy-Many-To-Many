@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+
+{%block title%}
+        {{post.title}}
+{%endblock%}
+
+{%block content%}
+<div class="container m-3">
+    <div class="fw-bold fs-4 mb-3">
+        {{post.title}}
+    </div>
+    <div>
+        <div class=" bt-2 pb-5">
+            {{post.content}}
+        </div>
+        <div class="pb-3">
+            <p class="fst-italic">
+                By {{post.user.first_name}} {{post.user.last_name}}
+            </p>
+        </div>
+
+        <div class="d-inline-block">
+            <form action="/users/{{post.user.id}}">
+                <button class="btn btn-outline-info">Cancel</button>
+            </form>
+        </div>
+        
+        <div class="d-inline-block">
+            <form action="/posts/{{post.id}}/edit">
+                <button class="btn btn-primary">Edit</button>
+            </form>
+        </div>
+        
+        <div class="d-inline-block">
+            <form action="/posts/{{post.id}}/delete" method="POST">
+                <button class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+        
+    </div>
+</div>
+
+{%endblock%}

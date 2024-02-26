@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{%block title%}
+Edit Post 
+{%endblock%}
+
+{%block content%}
+<h1>Update Post</h1>
+<div class="container ps-0 ms-0" >
+    <form action="/posts/{{post.id}}/edit" method="POST" class="row mb-3">
+            <label for="post-title" class=" col-form-label col-sm-2"> Title:</label>
+            <div class="col-sm-10">
+                <input type="text" name="post-title">
+            </div>
+            <label for="post-content" class="col-form-label col-sm-2"> Content:</label>
+            <div class="col-sm-10">
+                <input type="textarea" name="post-content">
+            </div>
+            
+            <div class="container"> 
+
+                <div class="d-inline-block">
+                    <form action="/posts/{{post.id}}">
+                        <button type="submit" class="btn btn-info">Cancel</button>
+                    </form>
+                </div>
+                <div class="d-inline-block c">
+                    <button type="submit" class="btn btn-success">Update Post</button>
+                </div>
+            </div>
+    </form>
+    
+    
+</div>
+
+{%endblock%}
