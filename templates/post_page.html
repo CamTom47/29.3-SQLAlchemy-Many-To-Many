@@ -19,6 +19,14 @@
             </p>
         </div>
 
+        <div>
+            <p class="fw-bold"> Tags:
+                {%for tag in post_tags%}
+                <a href="/tags/{{tag.id}}" class="badge text-bg-primary text-decoration-none">{{tag.name}}</a>
+                {%endfor%}
+            </p>
+        </div>
+
         <div class="d-inline-block">
             <form action="/users/{{post.user.id}}">
                 <button class="btn btn-outline-info">Cancel</button>

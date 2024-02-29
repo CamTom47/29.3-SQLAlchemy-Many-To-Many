@@ -16,16 +16,22 @@ New Post Form
             <label for="post-content" class="col-form-label col-sm-2"> Content:</label>
             <div class="col-sm-10">
                 <input type="textarea" name="post-content">
+
+                
             </div>
+            {%for tag in tags%}
+            <div class="d-block">
+                <input type="checkbox" name="post-tags" value="{{tag.name}}"id="" >
+                <label for="post-tags">{{tag.name}}</label>
+            </div>
+            {%endfor%}
             
             <div class="container"> 
 
                 <div class="d-inline-block">
-                    <form action="/users/{{user.id}}">
-                        <button type="submit" class="btn btn-info">Cancel</button>
-                    </form>
+                    <a href="/users/{{user.id}}" class="btn btn-info" role="button">Cancel</a>
                 </div>
-                <div class="d-inline-block c">
+                <div class="d-inline-block">
                     <button type="submit" class="btn btn-success">Add</button>
                 </div>
             </div>

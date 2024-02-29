@@ -17,14 +17,20 @@ Edit Post
                 <input type="textarea" name="post-content">
             </div>
             
+        </div>
+        {%for tag in tags%}
+        <div class="d-block">
+            <input type="checkbox" name="post-tags" value="{{tag.name}}"id="" >
+            <label for="post-tags">{{tag.name}}</label>
+        </div>
+        {%endfor%}
+        
             <div class="container"> 
 
                 <div class="d-inline-block">
-                    <form action="/posts/{{post.id}}">
-                        <button type="submit" class="btn btn-info">Cancel</button>
-                    </form>
+                    <a href="/posts/{{post.id}}" class="btn btn-info" role="button">Cancel</a>
                 </div>
-                <div class="d-inline-block c">
+                <div class="d-inline-block">
                     <button type="submit" class="btn btn-success">Update Post</button>
                 </div>
             </div>

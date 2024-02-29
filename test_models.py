@@ -45,3 +45,9 @@ class PostModelTestCase(TestCase):
     def test_user_post_relation(self):
         post = Post(title='Test Title', content='Test content', user_id=1)
         self.assertEqual(post.user_id, 1)
+
+
+class TagModelTestCase(TestCase):
+
+
+class PostTagModelTestCase(TestCase):

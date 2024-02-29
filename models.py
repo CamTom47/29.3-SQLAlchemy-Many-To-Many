@@ -45,3 +45,27 @@ class Post(db.Model):
     user_id = db.Column(db.Integer,
                         db.ForeignKey('users.id'),
                         nullable = False)
+
+class Tag(db.Model):
+
+    __tablename__ = 'tags'
+
+    id = db.Column(db.Integer, 
+                   primary_key = True)
+    name = db.Column(db.Text,
+                     nullable = False,
+                     unique = True)
+    
+    post = db.relationship('Post', secondary='post_tag', backref='tag')
+
+class PostTag(db.Model):
+
+    __tablename__ = 'post_tag'
+
+    post_id = db.Column(db.Integer,
+                        db.ForeignKey('posts.id'),
+                        primary_key = True)
+    tag_id = db.Column(db.Integer,
+                        db.ForeignKey('tags.id'),
+                        primary_key = True)
+    
